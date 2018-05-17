@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"html/template"
+	"io"
+	// "path/filepath"
 	//"log"
 )
 
@@ -15,11 +17,12 @@ func HomePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func ServeStatic(w http.ResponseWriter, r *http.Request) {
-	w.writeHeader(http.StatusOk)
 	io.WriteString(w, "Hello")
 }
 
 func main() {
+	fs := http.FileServer(http.Dir("static"))
+  	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", HomePage)
 	http.HandleFunc("/static", ServeStatic)
 	http.ListenAndServe(":4242", nil)
