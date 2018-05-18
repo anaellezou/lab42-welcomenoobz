@@ -98,3 +98,38 @@ func FindStudentBy(field string, value string) (student, error) {
 	defer db.Close()
 	return student{}, nil
 }
+
+func GetAllStudents() ([]student, error) {
+    sqlStmt := `select * from students;`
+    db, err := sql.Open("sqlite3", "./lab42.db")
+    if err != nil {
+        fmt.Printf("Error DB: %v\n", err)
+    }
+
+    rows, err := db.Query(sqlStmt)
+    if err != nil {
+        fmt.Printf("%q: %s\n", err, sqlStmt)
+        panic(err)
+    }
+    fmt.Printf("%v\n", db)
+    var array_studs []student;
+    for rows.Next() {
+        var (
+            id int
+            name string
+            techs string
+            pizza string
+            music string
+            role string
+            inspirationnal_quote string
+        )
+
+        if err := rows.Scan(&id, &name, &techs, &pizza, &music, &role, &inspirationnal_quote); err != nil {
+            panic(err)
+        }
+        stud := student{name, techs, pizza, music, role, inspirationnal_quote}
+        array_studs = append(array_studs, stud)
+    }
+    defer db.Close()
+    return array_studs, nil
+}

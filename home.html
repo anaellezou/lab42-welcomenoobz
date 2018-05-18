@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <head>
@@ -7,272 +8,27 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
-	<section class="section has-background-dark is-bold">
-		<div class="container">
-			<div class="box">
-				<div class="columns">
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/cmalfroy.png">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Clément</p>
-								<div class="content">
-									🦋: Docker, Python / Flask, Rancher, Git<br/>
-									🍕: 4 fromages<br/>
-									🎶: Una Matina - Ludovico Einaudi<br/>
-									🤠: Malefoy, Le Rappeur<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Always shoot for the moon, even if you miss you'll land among the stars"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/ananelle.png">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Anaëlle</p>
-								<div class="content">
-									🦋: Unity, Docker, RaspPI, Golang<br/>
-									🍕: 4 saisons<br/>
-									🎶: Cet été la - Joe Isaishi<br/>
-									🤠: Being the awkward one<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Remember to always be yourself unless you suck. Then pretend to be someone else"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/qarc.jpg">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Qarc</p>
-								<div class="content">
-									🦋: Golang, Kafka, Nodejs, Meshlab, Slack, vs-fighting<br/>
-									🍕: Chèvre-miel<br/>
-									🎶: Sans repères - Sniper<br/>
-									🤠: Qarciflette, le LDAP<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"L'homme est un roseau pensant"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/oseng.jpg">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Christophe</p>
-								<div class="content">
-									🦋: PHP Laravel, Python, JS, jQuery, iOS, Git<br/>
-									🍕: Caleçon<br/>
-									🎶: Gunther - Ding ding dong<br/>
-									🤠: Le maquereau<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Ne pas oublier les autres 50%"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/fmaury.jpg">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Fmomo</p>
-								<div class="content">
-									🦋: Pytho, Bash, PHP<br/>
-									🍕: Reine<br/>
-									🎶: Nostalgia.wav<br/>
-									🤠: Le debugger<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Pastis?"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/franck.png">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Franck</p>
-								<div class="content">
-									🦋: Python, Keras, TensorFlow, Machine-Learning, Docker, Git, <br/>
-									🍕: Reine<br/>
-									🎶: Fruit de la passion - Francky Vincent<br/>
-									🤠: Le chimiste<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Rien ne se perd, rien ne se crée, tout se transforme"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+	<p>yo</p>
+	{{range .}}
+	<div class="card">
+		<div class="card-image">
+			<figure class="image is-3by3">
+				<img src="/static/cmalfroy.png">
+			</figure>
+		</div>
+		<div class="card-content">
+			<p class="title">{{students.name}}</p>
+			<div class="content">
+				🦋: {{students.techs}}<br/>
+				🍕: {{students.pizza}}<br/>
+				🎶: {{students.music}}<br/>
+				🤠: {{students.role}}<br/>
 			</div>
-		</section>
-		<section class="section has-background-dark is-bold">
-		<div class="container">
-			<div class="box">
-				<div class="columns">
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/marco.png">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Marco</p>
-								<div class="content">
-									🦋: Swift, Ruby on Rails, xCode, RaspPI<br/>
-									🍕: Reine, si elle est dégueu, le resto est pas ouf<br/>
-									🎶: A day in the life - The Beatles<br/>
-									🤠: En couple avec la racine<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Inutile donc indispensable"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/atripard.jpg">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Arthur</p>
-								<div class="content">
-									🦋: Arduino, Python<br/>
-									🍕: Pas de pizzas<br/>
-									🎶: Pas de musique<br/>
-									🤠: Le mangeur de graines<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"ASCII stupid question, get a stupid ANSI!"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/ggane.jpg">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Ggane</p>
-								<div class="content">
-									🦋: Python, Swift (mais pas trop)<br/>
-									🍕: Reine || Hawaïenne<br/>
-									🎶: Fix you - Coldplay<br/>
-									🤠: Le philosophe<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"C'est celui qui dit qui est"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/thomas.png">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Thomas</p>
-								<div class="content">
-									🦋: Swift, Claquettes, Origami, Golang, Recast.ai, Git, Gitlab, Python<br/>
-									🍕: Marguerite<br/>
-									🎶: There will be a time - Mumford and Sons<br/>
-									🤠: Blagues pourries, Le comique des comics<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Demandes à Quentin"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/gmonnier.jpg">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Greg</p>
-								<div class="content">
-									🦋: SVT, Nodejs<br/>
-									🍕: Chèvre-miel<br/>
-									🎶: Comfortably numb - Pink Floyd<br/>
-									🤠: Le professeur<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Demandes à Thomas"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="card">
-							<div class="card-image">
-								<figure class="image is-3by3">
-									<img src="/static/martin.png">
-								</figure>
-							</div>
-							<div class="card-content">
-								<p class="title">Martin</p>
-								<div class="content">
-									🦋: iOS, Swift, Android, Java<br/>
-									🍕: Margarita<br/>
-									🎶: Berlin - Black Rebel Motorcycle Club<br/>
-									🤠: Incorrigible Carry<br/>
-								</div>
-								<div class="card-footer">
-									<p class="is-italic">"Pierre qui roule n'amasse pas mousse"</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="card-footer">
+				<p class="is-italic">{{students.inspirational_quote}}</p>
 			</div>
-		</section>
-	</form>
+		</div>
+	</div>
+	{{end}}
 </body>
 </html>

@@ -12,11 +12,12 @@ import (
 )
 
 func HomePage(w http.ResponseWriter, r *http.Request) {
+	stud, err := GetAllStudents()
 	t, err := template.ParseFiles("home.html")
 	if err != nil {
 		fmt.Printf("Error parsing template: %v\n", err)
 	}
-	err = t.Execute(w, nil)
+	err = t.Execute(w, stud)
 	if err != nil {
 		fmt.Printf("Error executing template: %v\n", err)
 	}
@@ -38,7 +39,7 @@ func handleWhoIs(request slacker.Request, response slacker.ResponseWriter) {
 		response.Reply("> Usage: @gossiplab whois <name>")
 		return
 	}
-	stud, _ := FindStudentBy("name", "Thomas")
+	stud, _ := FindStudentBy("name", name)
 	response.Reply("> *" + stud.name + "* mange des pizzas *" + stud.pizza + "* en écoutant *" + stud.music + "* en codant du *" + stud.techs + "*")
 }
 
@@ -59,10 +60,8 @@ func handleNoob(request slacker.Request, response slacker.ResponseWriter) {
 }
 
 func main() {
-	TestDB()
-	thom := student{"Thomas", "GOlang", "hawaïenne", "pf:wishuwerehere", "racine", "wsh"}
-	CreateStudent(thom)
 
+	TestDB()
 	// Launching bot
 	bot := slacker.NewClient(os.Getenv("API_TOKEN"))
 	bot.Init(func() {
@@ -76,7 +75,7 @@ func main() {
 	})
 	bot.Command("hello <name>", "Say hello to someone", handleBot)
 	bot.Command("whois <name>", "Ask information about someone", handleWhoIs)
-	bot.Command("index <name> <pizza> <fav_song> <role> <inspirationnal_quote>", "Index a noob of the lab",
+	bot.Command("index <name> <techs> <pizza> <music> <role> <inspirationnal_quote>", "Index a noob of the lab",
 		handleNoob)
 	go bot.Listen()
 
