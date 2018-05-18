@@ -8,8 +8,17 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
-	<section class="section">
+	<section class="section has-background-grey-darker is-small">
+		<div class="container">
+		<div class="box has-text-centered">
+			<h1 class="title has-text-grey-dark">Les loulous du Lab</h1>
+		</div>
+	</div>
+	</section>
+	<section class="section has-background-white-bis is-bold">
+		<div class="columns is-mobile is-multiline is-centered">
 	{{range .Studs}}
+	<div class="column is-narrow is-one-third">
 	<div class="card">
 		<div class="card-image">
 			<figure class="image is-3by3">
@@ -29,7 +38,9 @@
 			</div>
 		</div>
 	</div>
+</div>
 	{{end}}
+</div>
 	</section>
 </body>
 </html>
