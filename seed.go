@@ -20,7 +20,9 @@ func HandleSeed(w http.ResponseWriter, r *http.Request) {
 		"Chèvre-miel", "Sans-repères - Sniper", "Qarciflette, le ldap", "L'homme est un roseau pensant", "qarc.jpg"})
 	CreateStudent(student{"Marco", "Swift, Ruby on rails, xCode, Raspberry", "La Reine - Si elle est dégueu le resto est pas ouf",
 		"A day in the life - The Beatles", "En couple avec le root", "Inutile donc indispensable", "marco.png"})
-	CreateStudent(student{"Christophe", "PHP Laravel, Python, JS, jQuery, iOS, git", "Caleçon",
-		"Ding ding dong - Gunther", "Le maquereau", "Ne pas oublier les autres 50%", "oseng.jpg"})
+	// CreateStudent(student{"Christophe", "PHP Laravel, Python, JS, jQuery, iOS, git", "Caleçon",
+		// "Ding ding dong - Gunther", "Le maquereau", "Ne pas oublier les autres 50%", "oseng.jpg"})
+	CreateStudent(student{"Acollin", "Tinder, NodeJS, JS, Go, HTML, Python, Keras", "Cannibale", "Kenza Farah - La musique de la pub de la voiture la...",
+		"Adhérent", "Ça a un prix de jouer au malin", "acollin.png"})
 	io.WriteString(w, "seed 👌\n")
 }
