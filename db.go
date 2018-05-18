@@ -40,8 +40,8 @@ func TestDB() {
 }
 
 func CreateStudent(stud student) {
-	sqlStmt := StrFormat(`insert into students ('name', 'techs', 'pizza', 'music', 'role', 'inspirationnal_quote')
-		VALUES('{name}', '{techs}', '{pizza}', '{music}', '{role}', '{inspirationnal_quote}')`,
+	sqlStmt := StrFormat(`insert into students ("name", "techs", "pizza", "music", "role", "inspirationnal_quote")
+		VALUES("{name}", "{techs}", "{pizza}", "{music}", "{role}", "{inspirationnal_quote}")`,
 		"name", stud.Name,
 		"techs", stud.Techs,
 		"pizza", stud.Pizza,

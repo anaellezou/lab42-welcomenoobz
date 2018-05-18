@@ -10,11 +10,17 @@ func HandleSeed(w http.ResponseWriter, r *http.Request) {
 	CreateStudent(student{"Anaëlle", "Unity, RaspPi, Docker, Golang", "4 saisons",
 		"Cet été la - Joe Hisaishi", "Anzouz",
 		"Remember to always be yourself unless you suck. Then pretend to be someone else"})
-	CreateStudent(student{"Clément", "Unity, RaspPi, Docker, Golang", "4 saisons",
-		"Cet été la - Joe Hisaishi", "Anzouz",
-		"Remember to always be yourself unless you suck. Then pretend to be someone else"})
-	CreateStudent(student{"Thomas", "Unity, RaspPi, Docker, Golang", "4 saisons",
-		"Cet été la - Joe Hisaishi", "Anzouz",
-		"Remember to always be yourself unless you suck. Then pretend to be someone else"})
+	CreateStudent(student{"Clément", "Docker, Flask, Python, Rancher, Git", "4 fromages",
+		"Une Matina - Ludovico Einaudi", "Malefoy, le rappeur",
+		"Always shoot for the moon, even if you miss you'll land among the stars"})
+	CreateStudent(student{"Thomas", "Ruby on Rails, git, docker, bash", "Marguarita avec Origan",
+		"Canon in D - Pachelbel", "Racine",
+		"Quote de porc"})
+	CreateStudent(student{"Qarc", "Go, Kafka, Nodejs, Meshlab, Slack, Esport (vs-fighting)",
+		"Chèvre-miel", "Sans-repères - Sniper", "Qarciflette, le ldap", "L'homme est un roseau pensant"})
+	CreateStudent(student{"Marco", "Swift, Ruby on rails, xCode, Raspberry", "La Reine - Si elle est dégueu le resto est pas ouf",
+		"A day in the life - The Beatles", "En couple avec le root", "Inutile donc indispensable"})
+	CreateStudent(student{"Christophe", "PHP Laravel, Python, JS, jQuery, iOS, git", "Caleçon",
+		"Ding ding dong - Gunther", "Le maquereau", "Ne pas oublier les autres 50%"})
 	io.WriteString(w, "seed 👌\n")
 }
