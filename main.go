@@ -78,7 +78,7 @@ func main() {
 	bot.Command("whois <name>", "Ask information about someone", handleWhoIs)
 	bot.Command("index <name> <pizza> <fav_song> <role> <inspirationnal_quote>", "Index a noob of the lab",
 		handleNoob)
-	bot.Listen()
+	go bot.Listen()
 
 	// }()
 	fs := http.FileServer(http.Dir("static"))
@@ -86,6 +86,7 @@ func main() {
 
 	// Routes
 	http.HandleFunc("/", HomePage)
+	http.HandleFunc("/seed", HandleSeed)
 
 	// Server start
 	fmt.Printf("Server started.\n")
