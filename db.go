@@ -6,12 +6,12 @@ import (
 )
 
 type student struct {
-	name string
-	techs string
-	pizza string
-	music string
-	role string
-	inspirationnal_quote string
+	Name string
+	Techs string
+	Pizza string
+	Music string
+	Role string
+	Inspirationnal_quote string
 }
 
 const table_name = "students"
@@ -42,12 +42,12 @@ func TestDB() {
 func CreateStudent(stud student) {
 	sqlStmt := StrFormat(`insert into students ('name', 'techs', 'pizza', 'music', 'role', 'inspirationnal_quote')
 		VALUES('{name}', '{techs}', '{pizza}', '{music}', '{role}', '{inspirationnal_quote}')`,
-		"name", stud.name,
-		"techs", stud.techs,
-		"pizza", stud.pizza,
-		"music", stud.music,
-		"role", stud.role,
-		"inspirationnal_quote", stud.inspirationnal_quote)
+		"name", stud.Name,
+		"techs", stud.Techs,
+		"pizza", stud.Pizza,
+		"music", stud.Music,
+		"role", stud.Role,
+		"inspirationnal_quote", stud.Inspirationnal_quote)
 
 	db, err := sql.Open("sqlite3", "./lab42.db")
 	if err != nil {

@@ -11,13 +11,19 @@ import (
 	"github.com/shomali11/slacker"
 )
 
+type ViewData struct {
+	Studs []student
+}
+
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	stud, err := GetAllStudents()
 	t, err := template.ParseFiles("home.html")
 	if err != nil {
 		fmt.Printf("Error parsing template: %v\n", err)
 	}
-	err = t.Execute(w, stud)
+	viewdata := ViewData{stud}
+    // fmt.Println(view)
+	err = t.Execute(w, viewdata)
 	if err != nil {
 		fmt.Printf("Error executing template: %v\n", err)
 	}
@@ -40,7 +46,7 @@ func handleWhoIs(request slacker.Request, response slacker.ResponseWriter) {
 		return
 	}
 	stud, _ := FindStudentBy("name", name)
-	response.Reply("> *" + stud.name + "* mange des pizzas *" + stud.pizza + "* en écoutant *" + stud.music + "* en codant du *" + stud.techs + "*")
+	response.Reply("> *" + stud.Name + "* mange des pizzas *" + stud.Pizza + "* en écoutant *" + stud.Music + "* en codant du *" + stud.Techs + "*")
 }
 
 func handleNoob(request slacker.Request, response slacker.ResponseWriter) {
