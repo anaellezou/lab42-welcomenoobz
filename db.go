@@ -12,6 +12,7 @@ type student struct {
 	Music string
 	Role string
 	Inspirationnal_quote string
+	Image string
 }
 
 const table_name = "students"
@@ -28,7 +29,8 @@ func TestDB() {
 		                  pizza text,
 		                  music text,
 		                  role text,
-		                  inspirationnal_quote text);
+		                  inspirationnal_quote text,
+		                  image string);
 	`
 	_, err = db.Exec(sqlStmt)
 	if err != nil {
@@ -40,14 +42,15 @@ func TestDB() {
 }
 
 func CreateStudent(stud student) {
-	sqlStmt := StrFormat(`insert into students ("name", "techs", "pizza", "music", "role", "inspirationnal_quote")
-		VALUES("{name}", "{techs}", "{pizza}", "{music}", "{role}", "{inspirationnal_quote}")`,
+	sqlStmt := StrFormat(`insert into students ("name", "techs", "pizza", "music", "role", "inspirationnal_quote", "image")
+		VALUES("{name}", "{techs}", "{pizza}", "{music}", "{role}", "{inspirationnal_quote}", "{image}")`,
 		"name", stud.Name,
 		"techs", stud.Techs,
 		"pizza", stud.Pizza,
 		"music", stud.Music,
 		"role", stud.Role,
-		"inspirationnal_quote", stud.Inspirationnal_quote)
+		"inspirationnal_quote", stud.Inspirationnal_quote,
+		"image", stud.Image)
 
 	db, err := sql.Open("sqlite3", "./lab42.db")
 	if err != nil {
@@ -87,12 +90,13 @@ func FindStudentBy(field string, value string) (student, error) {
 			music string
 			role string
 			inspirationnal_quote string
+			image string
 		)
 
-		if err := rows.Scan(&id, &name, &techs, &pizza, &music, &role, &inspirationnal_quote); err != nil {
+		if err := rows.Scan(&id, &name, &techs, &pizza, &music, &role, &inspirationnal_quote, &image); err != nil {
             panic(err)
         }
-        stud := student{name, techs, pizza, music, role, inspirationnal_quote}
+        stud := student{name, techs, pizza, music, role, inspirationnal_quote, image}
 		return stud, nil
 	}
 	defer db.Close()
@@ -122,12 +126,13 @@ func GetAllStudents() ([]student, error) {
             music string
             role string
             inspirationnal_quote string
+            image string
         )
 
-        if err := rows.Scan(&id, &name, &techs, &pizza, &music, &role, &inspirationnal_quote); err != nil {
+        if err := rows.Scan(&id, &name, &techs, &pizza, &music, &role, &inspirationnal_quote, &image); err != nil {
             panic(err)
         }
-        stud := student{name, techs, pizza, music, role, inspirationnal_quote}
+        stud := student{name, techs, pizza, music, role, inspirationnal_quote, image}
         array_studs = append(array_studs, stud)
     }
     defer db.Close()

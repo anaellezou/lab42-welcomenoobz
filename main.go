@@ -57,11 +57,12 @@ func handleNoob(request slacker.Request, response slacker.ResponseWriter) {
 	music := request.Param("music")
 	role := request.Param("role")
 	inspirationnal_quote := request.Param("inspirationnal_quote")
+	image := request.Param("image")
 	if name == "" || techs == "" || pizza == "" || music == "" || role == "" || inspirationnal_quote == "" {
-		response.Reply("> Usage: @gossiplab index <name> <pizza> <fav_song> <role> <inspirationnal_quote>")
+		response.Reply("> Usage: @gossiplab index <name> <pizza> <fav_song> <role> <inspirationnal_quote> <image>")
 		return
 	} 
-	CreateStudent(student{name, techs, pizza, music, role, inspirationnal_quote})
+	CreateStudent(student{name, techs, pizza, music, role, inspirationnal_quote, image})
 	response.Reply("> Noob has been created in db")
 }
 
